@@ -19,10 +19,5 @@ public class PlayerBulletController : MonoBehaviour {
 		if (other.gameObject.tag == "bar"){
 			Destroy(gameObject);
 		}
-
-		if (other.gameObject.tag == "enemybullet" || other.gameObject.tag == "enemy"){
-			Destroy(gameObject);
-			Destroy(other.gameObject);
-		}
 	}
 }

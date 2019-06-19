@@ -17,4 +17,10 @@ public class ItemController : MonoBehaviour {
 		// transform.Translate(-1.0f,0,0);
 		transform.Rotate(0,0,15.0f,Space.Self);
 	}
+
+	private void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.tag == "bar"){
+			Destroy(gameObject);
+		}
+	}
 }
