@@ -5,7 +5,6 @@ using UnityEngine;
 public class NormalEnemyController : MonoBehaviour {
 
 	public GameObject EnemyBulletPrefab;
-	float delta = 0;
 	float moveSpan = 0.5f;
 	float moveDelta = 0;
 	float shootSpan = 1.5f;
@@ -20,12 +19,8 @@ public class NormalEnemyController : MonoBehaviour {
 	void Update () {
 		moveDelta += Time.deltaTime;
 		if(moveSpan < moveDelta){
-			shootDelta +=Time.deltaTime;
-			delta = 0;
-			if(moveSpan < moveDelta){
-				moveDelta = 0;
-				transform.Translate(0, -0.3f, 0);
-			}
+			moveDelta = 0;
+			transform.Translate(0, -0.3f, 0);
 		}
 		shootDelta += Time.deltaTime;
 		if(shootSpan < shootDelta){
