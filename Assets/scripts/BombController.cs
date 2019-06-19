@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class BombController : MonoBehaviour {
 
-	float explosion_time = 1.0f ;
+	float explosion_time = 1.2f ;
 	float deltime = 0;
-	float vfx = 2.0f; 
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +15,7 @@ public class BombController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		deltime += Time.deltaTime;
-		if (deltime >= vfx){
+		if (deltime >= explosion_time){
 			Destroy(gameObject);
 		}
 
