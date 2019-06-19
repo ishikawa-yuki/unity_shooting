@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public GameObject playerbulletPrefab;
+	public GameObject bombPrefab;
 	public float deltime = 0;
 	float span = 0.2f;
 	int bullet_type = 0;
@@ -57,6 +58,11 @@ public class PlayerController : MonoBehaviour {
 				}
 
 			}
+		}
+
+		if (Input.GetKeyDown(KeyCode.B)){
+			GameObject bomb = Instantiate(bombPrefab) as GameObject;
+			bomb.transform.position = new Vector3(0,0,0);
 		}
 	}
 
