@@ -27,9 +27,7 @@ public class NormalEnemyController : MonoBehaviour {
 		if(other.gameObject.tag == "bar"){
 			Destroy(gameObject);
 		}
-	}
 
-	void OnCollisionEnter2D(Collision2D other){
 		if(other.gameObject.tag == "playerbullet"){
 			Destroy(gameObject);
 		}

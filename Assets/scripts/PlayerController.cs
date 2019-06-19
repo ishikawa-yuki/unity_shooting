@@ -66,5 +66,9 @@ public class PlayerController : MonoBehaviour {
 			Destroy(other.gameObject);
 			this.bullet_type = 1;
 		}
+		if (other.gameObject.tag == "enemybullet"){
+			Destroy(gameObject);
+			Destroy(other.gameObject);
+		}
 	}
 }
