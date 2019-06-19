@@ -20,7 +20,7 @@ public class NormalEnemyGenerator : MonoBehaviour {
 			this.delta = 0;
 			GameObject enemyGen = Instantiate(NormalEnemyPrefab) as GameObject;
 			enemyGen.transform.position = new Vector3(8, enemyPosy, 0);
-			if(enemyPosy < -4.5f){
+			if(enemyPosy < -3.0f){
 				enemyPosy = 4.5f;
 			} else {
 				enemyPosy -= 2.7f;

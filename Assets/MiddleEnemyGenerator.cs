@@ -21,7 +21,8 @@ public class MiddleEnemyGenerator : MonoBehaviour {
 			this.delta = 0;
 			GameObject enemyGen = Instantiate(MiddleEnemyPrefab) as GameObject;
 			enemyGen.transform.position = new Vector3(8, enemyPosy, 0);
-			if(enemyPosy < -4.5f){
+
+			if(enemyPosy < -3.0f){
 				enemyPosy = 4.0f;
 			} else {
 				enemyPosy -= 3.5f;
