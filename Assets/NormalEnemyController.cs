@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class NormalEnemyController : MonoBehaviour {
 
-	float span = 0.5f;
-	float delta = 0;
+	public GameObject EnemyBulletPrefab;
+	float delta = 0;		float moveSpan = 0.5f;
+	float moveDelta = 0;
+	float shootSpan = 1.5f;
+	float shootDelta = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,10 +16,16 @@ public class NormalEnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		delta += Time.deltaTime;
-		if(span < delta){
-			delta = 0;
+		moveDelta += Time.deltaTime;
+		if(span < delta){			shootDelta +=Time.deltaTime;
+			delta = 0;			if(moveSpan < moveDelta){
+			moveDelta = 0;
 			transform.Translate(0, -0.3f, 0);
+		}
+
+		if(shootSpan < shootDelta){
+			shootDelta = 0;
+			Instantiate (EnemyBulletPrefab, transform.position, Quaternion.identity);
 		}
 	}
 
