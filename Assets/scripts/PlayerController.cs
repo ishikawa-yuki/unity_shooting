@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public GameObject playerbulletPrefab;
+	public GameObject bombPrefab;
 	public float deltime = 0;
 	float span = 0.2f;
 	int bullet_type = 0;
@@ -58,6 +59,11 @@ public class PlayerController : MonoBehaviour {
 
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.B)){
+			GameObject bomb = Instantiate(bombPrefab) as GameObject;
+			bomb.transform.position = new Vector3(0,0,0);
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -65,6 +71,10 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "item"){
 			Destroy(other.gameObject);
 			this.bullet_type = 1;
+		}
+		if (other.gameObject.tag == "enemybullet"){
+			Destroy(gameObject);
+			Destroy(other.gameObject);
 		}
 	}
 }
