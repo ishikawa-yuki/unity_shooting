@@ -23,18 +23,18 @@ public class MiddleEnemyController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "bar"){
-			Destroy(gameObject);
-		}
-	}
+  void OnCollisionEnter2D(Collision2D other){
 
-	void OnCollisionEnter2D(Collision2D other){
 		if(other.gameObject.tag == "playerbullet"){
 			this.life -= 1;
 			if(this.life <= 0){
 				Destroy(gameObject);
 			}
 		}
+
+		if(other.gameObject.tag == "bar"){
+			Destroy(gameObject);
+		}
+
 	}
 }

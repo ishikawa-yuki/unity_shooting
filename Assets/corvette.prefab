@@ -22,10 +22,12 @@ GameObject:
   - component: {fileID: 212591428012477370}
   - component: {fileID: 114724027892034602}
   - component: {fileID: 61264930019041870}
+
   - component: {fileID: 50100108765960788}
   m_Layer: 0
   m_Name: corvette
   m_TagString: enemy
+
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
