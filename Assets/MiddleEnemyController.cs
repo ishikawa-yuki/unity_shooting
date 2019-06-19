@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalEnemyController : MonoBehaviour {
+public class MiddleEnemyController : MonoBehaviour {
 
 	public GameObject EnemyBulletPrefab;
+	int life = 7;
 	float shootSpan = 1.5f;
 	float shootDelta = 0;
-
 	// Use this for initialization
 	void Start () {
 		
@@ -15,7 +15,7 @@ public class NormalEnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(0, -0.02f, 0);
+		transform.Translate(-0.01f, 0, 0);
 		shootDelta += Time.deltaTime;
 		if(shootSpan < shootDelta){
 			shootDelta = 0;
@@ -31,7 +31,10 @@ public class NormalEnemyController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other){
 		if(other.gameObject.tag == "playerbullet"){
-			Destroy(gameObject);
+			this.life -= 1;
+			if(this.life <= 0){
+				Destroy(gameObject);
+			}
 		}
 	}
 }
