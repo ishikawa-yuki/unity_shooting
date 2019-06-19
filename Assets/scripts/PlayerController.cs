@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	Rigidbody2D rigid2d;
 	public GameObject playerbulletPrefab;
 	public float deltime = 0;
-	float span = 0.1f;
+	float span = 0.2f;
 	int bullet_type = 0;
 
 
 	// Use this for initialization
 	void Start () {
-		rigid2d = GetComponent<Rigidbody2D>();
+		
 	}
 	
 	// Update is called once per frame
