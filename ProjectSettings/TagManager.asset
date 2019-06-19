@@ -8,6 +8,7 @@ TagManager:
   - bar
   - item
   - enemybullet
+  - enemy
   layers:
   - Default
   - TransparentFX

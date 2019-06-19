@@ -14,15 +14,15 @@ public class PlayerBulletController : MonoBehaviour {
 		transform.Translate(0,0.3f,0);
 	}
 
-	private void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerEnter2D(Collider2D other) {
 		Debug.Log(other.gameObject.tag + "に当たりました");
 		if (other.gameObject.tag == "bar"){
 			Destroy(gameObject);
 		}
 
-		if (other.gameObject.tag == "enemybullet"){
-			Destroy(other.gameObject);
+		if (other.gameObject.tag == "enemybullet" || other.gameObject.tag == "enemy"){
 			Destroy(gameObject);
+			Destroy(other.gameObject);
 		}
 	}
 }
