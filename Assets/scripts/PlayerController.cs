@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour {
 	Rigidbody2D rigid2d;
 	public GameObject playerbulletPrefab;
 	public float deltime = 0;
-
 	float span = 0.1f;
+	int bullet_type = 0;
 
 
 	// Use this for initialization
@@ -34,9 +34,30 @@ public class PlayerController : MonoBehaviour {
 			this.deltime += Time.deltaTime;
 			if (this.deltime >= this.span ){
 				this.deltime = 0;
-				GameObject bullet = Instantiate(playerbulletPrefab) as GameObject;
-				bullet.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y,transform.position.z);	
+				switch (this.bullet_type){
+
+					case 1:
+					 GameObject bullet1 = Instantiate(playerbulletPrefab) as GameObject;
+					 GameObject bullet2 = Instantiate(playerbulletPrefab) as GameObject;
+					 bullet1.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y + 0.5f,transform.position.z);
+					 bullet2.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y - 0.5f,transform.position.z);
+					 break;
+
+					default:
+					GameObject bullet = Instantiate(playerbulletPrefab) as GameObject;
+					bullet.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y,transform.position.z);
+					break;
+				}
+
 			}
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		Debug.Log(other.gameObject.tag + "に自機が重なりました");
+		if (other.gameObject.tag == "item"){
+			Destroy(other.gameObject);
+			this.bullet_type = 1;
 		}
 	}
 }
