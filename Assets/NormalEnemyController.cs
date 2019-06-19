@@ -24,13 +24,12 @@ public class NormalEnemyController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "bar"){
+
+		if(other.gameObject.tag == "playerbullet"){
 			Destroy(gameObject);
 		}
-	}
-
-	void OnCollisionEnter2D(Collision2D other){
-		if(other.gameObject.tag == "playerbullet"){
+		
+		if(other.gameObject.tag == "bar"){
 			Destroy(gameObject);
 		}
 	}
