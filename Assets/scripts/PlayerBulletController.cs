@@ -18,6 +18,11 @@ public class PlayerBulletController : MonoBehaviour {
 		Debug.Log(other.gameObject.tag + "に当たりました");
 		if (other.gameObject.tag == "bar"){
 			Destroy(gameObject);
-		}	
+		}
+
+		if (other.gameObject.tag == "enemybullet"){
+			Destroy(other.gameObject);
+			Destroy(gameObject);
+		}
 	}
 }
