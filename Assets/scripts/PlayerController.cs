@@ -12,22 +12,30 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey(KeyCode.UpArrow)){
-			transform.Translate(-0.1f,0,0);
+			if(transform.position.y < 4.5f){
+				transform.Translate(-0.1f,0,0);
+			}
 		}
 		if (Input.GetKey(KeyCode.DownArrow)){
-			transform.Translate(0.1f,0,0);
+			if (transform.position.y > -4.5f){
+				transform.Translate(0.1f,0,0);	
+			}
 		}
 		if (Input.GetKey(KeyCode.LeftArrow)){
-			transform.Translate(0,-0.1f,0);
+			if (transform.position.x > -7.5f){
+				transform.Translate(0,-0.1f,0);
+			}
 		}
 		if (Input.GetKey(KeyCode.RightArrow)){
-			transform.Translate(0,0.1f,0);
+			if (transform.position.x < 7.5f ){
+				transform.Translate(0,0.1f,0);
+			}
 		}
 		if (Input.GetKey(KeyCode.Space)){
 			this.deltime += Time.deltaTime;
