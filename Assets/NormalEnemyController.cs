@@ -5,8 +5,6 @@ using UnityEngine;
 public class NormalEnemyController : MonoBehaviour {
 
 	public GameObject EnemyBulletPrefab;
-	float moveSpan = 0.5f;
-	float moveDelta = 0;
 	float shootSpan = 1.5f;
 	float shootDelta = 0;
 

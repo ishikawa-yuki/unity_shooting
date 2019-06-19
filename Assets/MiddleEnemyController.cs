@@ -5,8 +5,7 @@ using UnityEngine;
 public class MiddleEnemyController : MonoBehaviour {
 
 	public GameObject EnemyBulletPrefab;
-	float moveSpan = 0.5f;
-	float moveDelta = 0;
+	int life = 7;
 	float shootSpan = 1.5f;
 	float shootDelta = 0;
 	// Use this for initialization
@@ -32,7 +31,10 @@ public class MiddleEnemyController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other){
 		if(other.gameObject.tag == "playerbullet"){
-			Destroy(gameObject);
+			this.life -= 1;
+			if(this.life <= 0){
+				Destroy(gameObject);
+			}
 		}
 	}
 }
