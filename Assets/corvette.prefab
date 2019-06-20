@@ -22,12 +22,10 @@ GameObject:
   - component: {fileID: 212591428012477370}
   - component: {fileID: 114724027892034602}
   - component: {fileID: 61264930019041870}
-
   - component: {fileID: 50100108765960788}
   m_Layer: 0
   m_Name: corvette
   m_TagString: enemy
-
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyBulletPrefab: {fileID: 1011738695855782, guid: f5252db1b644e42f996436d2dff787f6,
     type: 2}
+  exprosionPrefab: {fileID: 100000, guid: 4c5a17ca1f9fec84e941441ebb8be079, type: 2}
 --- !u!212 &212591428012477370
 SpriteRenderer:
   m_ObjectHideFlags: 1

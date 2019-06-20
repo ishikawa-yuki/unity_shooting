@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject playerbulletPrefab;
 	public GameObject bombPrefab;
+	GameObject gamedirector;
 	public float deltime = 0;
 	float span = 0.2f;
 	int bullet_type = 0;
@@ -13,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		this.gamedirector = GameObject.Find("GameDirector");
 	}
 	
 	// Update is called once per frame
@@ -61,8 +62,11 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.B)){
-			GameObject bomb = Instantiate(bombPrefab) as GameObject;
-			bomb.transform.position = new Vector3(0,0,0);
+			if (this.gamedirector.GetComponent<GameDirector>().bombstock >= 1){
+				GameObject bomb = Instantiate(bombPrefab) as GameObject;
+				bomb.transform.position = new Vector3(0,0,0);
+				this.gamedirector.GetComponent<GameDirector>().bomb();
+			}
 		}
 	}
 
@@ -75,6 +79,7 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "enemybullet"){
 			Destroy(gameObject);
 			Destroy(other.gameObject);
+			this.gamedirector.GetComponent<GameDirector>().player_kill();
 		}
 	}
 }
