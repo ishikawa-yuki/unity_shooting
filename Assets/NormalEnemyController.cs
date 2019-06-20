@@ -6,7 +6,7 @@ public class NormalEnemyController : MonoBehaviour {
 
 	public GameObject EnemyBulletPrefab;
 	public GameObject exprosionPrefab;
-	//GameObject director;
+	GameObject director;
 	//スコア加算用メソッド呼び出しのためにオブジェクトを定義・取得予定
 
 	float shootSpan = 1.5f;
@@ -14,7 +14,7 @@ public class NormalEnemyController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//this.director = GameObject.Find("GameDirector");
+		this.director = GameObject.Find("GameDirector");
 	}
 	
 	// Update is called once per frame
@@ -31,8 +31,8 @@ public class NormalEnemyController : MonoBehaviour {
 
 		if(other.gameObject.tag == "playerbullet"){
 			GameObject effect = Instantiate(exprosionPrefab, transform.position, Quaternion.identity) as GameObject;
+			this.director.GetComponent<GameDirector>().nomalenemy_kill();
 			Destroy(gameObject);
-			//director.GetComponent<GameDirector>().スコア加算メソッド();
 			//ToDo スコア加算用メソッド呼び出し追記予定
 		}
 

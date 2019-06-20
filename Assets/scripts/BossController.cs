@@ -9,8 +9,10 @@ public class BossController : MonoBehaviour {
 	float shotdelt = 0;
 	float span = 1.2f;
 	public GameObject enemybulletPrefab;
+
+	GameObject gamedirector;
 	public int hp = 100;
-	public int steage =2;
+	public int steage = 0;
 	float beam_time = 1.0f;
 	float beam_nowtime = 0;
 	float beam_cast = 0;
@@ -18,6 +20,8 @@ public class BossController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		this.gamedirector = GameObject.Find("GameDirector");
+		this.steage = this.gamedirector.GetComponent<GameDirector>().steage;
 		
 	}
 	

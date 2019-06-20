@@ -19,11 +19,6 @@ public class EnemyBulletController : MonoBehaviour {
 	// }
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "player"){
-			Destroy(other.gameObject);
-			Destroy(gameObject);
-		}
-
 		if(other.gameObject.tag == "bar"){
 			Destroy(gameObject);
 		}
