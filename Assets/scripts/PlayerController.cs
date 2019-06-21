@@ -9,12 +9,13 @@ public class PlayerController : MonoBehaviour {
 	GameObject gamedirector;
 	public float deltime = 0;
 	float span = 0.2f;
-	int bullet_type = 0;
+	public int bullet_type = 0;
 
 
 	// Use this for initialization
 	void Start () {
 		this.gamedirector = GameObject.Find("GameDirector");
+		this.bullet_type = PlayerPrefs.GetInt("bullet_mode",0);
 	}
 	
 	// Update is called once per frame
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour {
 					 break;
 
 					default:
+					Debug.Log("kuso");
 					GameObject bullet = Instantiate(playerbulletPrefab) as GameObject;
 					bullet.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y,transform.position.z);
 					break;
@@ -79,6 +81,7 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "enemybullet" || other.gameObject.tag == "enemy" || other.gameObject.tag == "boss"){
 			Destroy(gameObject);
 			Destroy(other.gameObject);
+			PlayerPrefs.SetInt("bullet_mode",0);
 			this.gamedirector.GetComponent<GameDirector>().player_kill();
 		}
 	}

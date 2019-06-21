@@ -9,13 +9,15 @@ public class GameDirector : MonoBehaviour {
 	GameObject stockText;
 	GameObject bombstockText;
 	GameObject stageText;
+	GameObject player;
 	public int bombstock = 1;
 	public int stock = 3;
 	int score =0;
 	public int stage = 1;
 	public float delt = 0;
 	float stage_put = 3.0f;
-	bool clear_flag = false;
+	public bool clear_flag = false;
+	public bool boss_sine = false;
 
 
 	public void player_kill (){
@@ -28,6 +30,10 @@ public class GameDirector : MonoBehaviour {
 			SceneManager.LoadScene("GameScene");
 		}
 		
+	}
+
+	public void sine(){
+		this.boss_sine = true;
 	}
 
 	public void nomalenemy_kill(){
@@ -58,6 +64,7 @@ public class GameDirector : MonoBehaviour {
 		this.stockText = GameObject.Find("stock");
 		this.bombstockText = GameObject.Find("bomb_stock");
 		this.stageText = GameObject.Find("stage");
+		this.player = GameObject.Find("player");
 		this.score = PlayerPrefs.GetInt("scoredata",0);
 		this.stock = PlayerPrefs.GetInt("stockdata",3);
 	}
@@ -78,6 +85,7 @@ public class GameDirector : MonoBehaviour {
 			PlayerPrefs.SetInt("stockdata", this.stock);
 			this.stage++;
 			PlayerPrefs.SetInt("clearflag", this.stage);
+			PlayerPrefs.SetInt("bullet_mode", this.player.GetComponent<PlayerController>().bullet_type);
 			SceneManager.LoadScene("GameScene");
 		}
 
