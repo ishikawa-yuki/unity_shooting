@@ -9,6 +9,8 @@ TagManager:
   - item
   - enemybullet
   - enemy
+  - obstacle
+  - boss
   layers:
   - Default
   - TransparentFX
