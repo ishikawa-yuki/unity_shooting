@@ -20,7 +20,7 @@ public class BossGeneratot : MonoBehaviour {
 		if( this.onlyBoss == 0){
 			if(this.delta >= this.span){
 				GameObject bossgen = Instantiate(bossPrefab) as GameObject;
-				bossgen.transform.position = new Vector3(0, 0, 0);
+				bossgen.transform.position = new Vector3(20, 0, 0);
 				this.onlyBoss = 1;
 			}
 		}
