@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour {
 			Destroy(other.gameObject);
 			this.bullet_type = 1;
 		}
-		if (other.gameObject.tag == "enemybullet"){
+		if (other.gameObject.tag == "enemybullet" || other.gameObject.tag == "enemy" || other.gameObject.tag == "boss"){
 			Destroy(gameObject);
 			Destroy(other.gameObject);
 			this.gamedirector.GetComponent<GameDirector>().player_kill();

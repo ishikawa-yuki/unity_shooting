@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114075769409228290}
   - component: {fileID: 61880322921780134}
   m_Layer: 0
-  m_Name: rock_8
+  m_Name: ObstaclePrefab
   m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
