@@ -59,6 +59,8 @@
      <Compile Include="Assets\MiddleEnemyGenerator.cs" />
      <Compile Include="Assets\NormalEnemyController.cs" />
      <Compile Include="Assets\NormalEnemyGenerator.cs" />
+     <Compile Include="Assets\ObstacleController.cs" />
+     <Compile Include="Assets\ObstacleGenerator.cs" />
      <Compile Include="Assets\scripts\BackgroundController.cs" />
      <Compile Include="Assets\scripts\BombController.cs" />
      <Compile Include="Assets\scripts\BossController.cs" />
