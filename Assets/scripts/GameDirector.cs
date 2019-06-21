@@ -8,10 +8,13 @@ public class GameDirector : MonoBehaviour {
 	GameObject scoreText;
 	GameObject stockText;
 	GameObject bombstockText;
+	GameObject stageText;
 	public int bombstock = 1;
 	public int stock = 3;
 	int score =0;
 	public int stage = 1;
+	public float delt = 0;
+	float stage_put = 3.0f;
 	bool clear_flag = false;
 
 
@@ -54,12 +57,19 @@ public class GameDirector : MonoBehaviour {
 		this.stage = PlayerPrefs.GetInt("clearflag",1);
 		this.stockText = GameObject.Find("stock");
 		this.bombstockText = GameObject.Find("bomb_stock");
+		this.stageText = GameObject.Find("stage");
 		this.score = PlayerPrefs.GetInt("scoredata",0);
 		this.stock = PlayerPrefs.GetInt("stockdata",3);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (this.delt <= this.stage_put){
+			this.delt += Time.deltaTime;
+			this.stageText.GetComponent<Text>().text = "STAGE" + this.stage;
+		}else{
+			this.stageText.GetComponent<Text>().text = "";
+		}
 		this.scoreText.GetComponent<Text>().text = "score : " + this.score;
 		this.bombstockText.GetComponent<Text>().text = "bomb : " + this.bombstock;
 		this.stockText.GetComponent<Text>().text = "stock : " + this.stock;
