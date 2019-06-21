@@ -16,7 +16,7 @@ public class PlayerBulletController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		Debug.Log(other.gameObject.tag + "に当たりました");
-		if (other.gameObject.tag == "bar"){
+		if (other.gameObject.tag == "bar" || other.gameObject.tag == "enemy"){
 			Destroy(gameObject);
 		}
 	}
