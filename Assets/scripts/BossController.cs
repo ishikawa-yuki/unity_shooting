@@ -116,6 +116,7 @@ public class BossController : MonoBehaviour {
 		if (other.gameObject.tag == "playerbullet"){
 			this.hp--;
 			if (this.hp <= 0){
+				this.gamedirector.GetComponent<GameDirector>().sine();
 				GameObject effect = Instantiate(exprosionPrefab, transform.position, Quaternion.identity) as GameObject;
 				Invoke("DieEffect", 1);
 			}	

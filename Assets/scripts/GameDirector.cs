@@ -16,7 +16,8 @@ public class GameDirector : MonoBehaviour {
 	public int stage = 1;
 	public float delt = 0;
 	float stage_put = 3.0f;
-	bool clear_flag = false;
+	public bool clear_flag = false;
+	public bool boss_sine = false;
 
 
 	public void player_kill (){
@@ -29,6 +30,10 @@ public class GameDirector : MonoBehaviour {
 			SceneManager.LoadScene("GameScene");
 		}
 		
+	}
+
+	public void sine(){
+		this.boss_sine = true;
 	}
 
 	public void nomalenemy_kill(){
