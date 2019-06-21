@@ -10,9 +10,8 @@ public class GameDirector : MonoBehaviour {
 	GameObject bombstockText;
 	public int bombstock = 1;
 	public int stock = 3;
-	public int steage = 1;
 	int score =0;
-	int stage = 1;
+	public int stage = 1;
 	bool clear_flag = false;
 
 
@@ -29,19 +28,24 @@ public class GameDirector : MonoBehaviour {
 	}
 
 	public void nomalenemy_kill(){
-		score += 100;
+		this.score += 100;
 	}
 
 	public void middleenemy_kill(){
-		score += 700;
+		this.score += 700;
+	}
+
+	public void boss_kill(){
+		this.score += 1000;
+		this.clear_flag = true;
 	}
 
 	public void stageclear(){
-		stage += 1;
+		this.stage += 1;
 	}
 
 	public void bomb(){
-		bombstock--;
+		this.bombstock--;
 	}
 
 	// Use this for initialization
@@ -51,7 +55,6 @@ public class GameDirector : MonoBehaviour {
 		this.stockText = GameObject.Find("stock");
 		this.bombstockText = GameObject.Find("bomb_stock");
 		this.score = PlayerPrefs.GetInt("scoredata",0);
-		Debug.Log(PlayerPrefs.GetInt("scoredata",0));
 		this.stock = PlayerPrefs.GetInt("stockdata",3);
 	}
 	
@@ -63,18 +66,15 @@ public class GameDirector : MonoBehaviour {
 		if(this.clear_flag){
 			PlayerPrefs.SetInt("scoredata", this.score);
 			PlayerPrefs.SetInt("stockdata", this.stock);
+			this.stage++;
 			PlayerPrefs.SetInt("clearflag", this.stage);
 			SceneManager.LoadScene("GameScene");
 		}
 
 		if(stage == 4){
-			PlayerPrefs.SetString("scoredata", this.scoreText.GetComponent<Text>().text);
+			PlayerPrefs.SetInt("scoredata", this.score);;
 			SceneManager.LoadScene("ClearScene");
 		}
 
-		if (stock <= 0){
-			// SceneManager.LoadScene("TitleScene");
-		}
-		
 	}
 }

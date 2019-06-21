@@ -21,7 +21,7 @@ public class BossController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.gamedirector = GameObject.Find("GameDirector");
-		this.steage = this.gamedirector.GetComponent<GameDirector>().steage;
+		this.steage = this.gamedirector.GetComponent<GameDirector>().stage;
 		
 	}
 	
@@ -108,6 +108,7 @@ public class BossController : MonoBehaviour {
 		if (other.gameObject.tag == "playerbullet"){
 			this.hp--;
 			if (this.hp <= 0){
+				this.gamedirector.GetComponent<GameDirector>().boss_kill();
 				Destroy(gameObject);
 			}	
 		}

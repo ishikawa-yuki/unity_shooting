@@ -16,7 +16,7 @@ public class MiddleEnemyGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.director = GameObject.Find("GameDirector");
-		int stageNum = this.director.GetComponent<GameDirector>().steage;
+		int stageNum = this.director.GetComponent<GameDirector>().stage;
 		switch (stageNum) {
 			case 1:
 				this.span = 15.0f;
