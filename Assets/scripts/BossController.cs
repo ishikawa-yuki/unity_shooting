@@ -106,7 +106,6 @@ public class BossController : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "playerbullet"){
-			Destroy(other.gameObject);
 			this.hp--;
 			if (this.hp <= 0){
 				Destroy(gameObject);
