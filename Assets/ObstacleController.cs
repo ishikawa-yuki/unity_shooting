@@ -21,8 +21,5 @@ public class ObstacleController : MonoBehaviour {
 		if(other.gameObject.tag == "playerbullet" || other.gameObject.tag == "enemybullet"){
 			Destroy(other.gameObject);
 		}
-		if(other.gameObject.tag == "Player"){
-			this.director.GetComponent<GameDirector>().player_kill();
-		}
 	}
 }
