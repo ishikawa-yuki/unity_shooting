@@ -11,6 +11,8 @@ TagManager:
   - enemy
   - obstacle
   - boss
+  - barrieritem
+  - barrier
   layers:
   - Default
   - TransparentFX
