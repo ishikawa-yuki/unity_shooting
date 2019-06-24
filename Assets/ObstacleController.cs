@@ -13,8 +13,8 @@ public class ObstacleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate(0, 0, 3.0f, Space.World);
-		transform.Translate (-0.01f, 0, 0, Space.World);
+		transform.Rotate(0, 0, 300.0f * Time.deltaTime, Space.World);
+		transform.Translate (-1.0f * Time.deltaTime, 0, 0, Space.World);
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
