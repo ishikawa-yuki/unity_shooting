@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 		if (other.gameObject.tag == "enemybullet" || other.gameObject.tag == "enemy" || other.gameObject.tag == "boss" || other.gameObject.tag == "obstacle"){
-			if (!(other.gameObject.tag == "obstacle")){
+			if (!(other.gameObject.tag == "obstacle" || other.gameObject.tag == "boss")){
 				Destroy(other.gameObject);
 			}
 			if (this.barrier_flag){
