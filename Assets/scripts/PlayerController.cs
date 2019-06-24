@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviour {
 	void DiePlayerEffect(){
 		Destroy(gameObject);
 		PlayerPrefs.SetInt("bullet_mode",0);
+		PlayerPrefs.SetInt("barrier_mode",0);
 		this.gamedirector.GetComponent<GameDirector>().player_kill();
 	}
 }
