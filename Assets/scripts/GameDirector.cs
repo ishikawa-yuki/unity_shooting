@@ -22,7 +22,6 @@ public class GameDirector : MonoBehaviour {
 
 	public void player_kill (){
 		this.stock--;
-		PlayerPrefs.SetInt("scoredata", this.score);
 		PlayerPrefs.SetInt("stockdata", this.stock);
 		if (this.stock <= 0){
 			SceneManager.LoadScene("TitleScene");
