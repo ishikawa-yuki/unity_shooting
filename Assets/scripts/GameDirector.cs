@@ -12,13 +12,13 @@ public class GameDirector : MonoBehaviour {
 	GameObject player;
 	public int bombstock = 1;
 	public int stock = 3;
-	int score =0;
+	int score = 0;
 	public int stage = 1;
 	public float delt = 0;
 	float stage_put = 3.0f;
 	public bool clear_flag = false;
 	public bool boss_sine = false;
-
+	public float emergenceStopSpan = 20.0f;
 
 	public void player_kill (){
 		this.stock--;

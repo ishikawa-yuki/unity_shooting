@@ -5,15 +5,34 @@ using UnityEngine;
 public class NormalEnemyGenerator : MonoBehaviour {
 
 	public GameObject NormalEnemyPrefab;
-	float span = 4.0f;
-	float stopSpan = 20.0f;
+	GameObject director;
+	GameDirector script;
+	float span = 0;
+	float stopSpan;
 	//ボス出現前に雑魚の出現を停止するまでの時間を示す変数
 	float delta = 0;
 	float stopDelta = 0;
 	float enemyPosy = 4.5f;
+
 	// Use this for initialization
 	void Start () {
-		
+		this.director = GameObject.Find("GameDirector");
+		this.script = this.director.GetComponent<GameDirector>();
+		int stageNum = this.script.stage;
+		this.stopSpan = this.script.emergenceStopSpan;
+		switch (stageNum) {
+			case 1:
+				this.span = 5.0f;
+				break;
+			case 2:
+				this.span = 3.5f;
+				break;
+			case 3:
+				this.span = 2.0f;
+				break;
+			default:
+				break;
+		}
 	}
 	
 	// Update is called once per frame
