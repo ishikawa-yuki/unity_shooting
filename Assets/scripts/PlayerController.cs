@@ -46,18 +46,26 @@ public class PlayerController : MonoBehaviour {
 				this.deltime = 0;
 				switch (this.bullet_type){
 
+					case 0:
+						GameObject bullet = Instantiate(playerbulletPrefab) as GameObject;
+						bullet.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y,transform.position.z);
+						break;
+					
 					case 1:
-					 GameObject bullet1 = Instantiate(playerbulletPrefab) as GameObject;
-					 GameObject bullet2 = Instantiate(playerbulletPrefab) as GameObject;
-					 bullet1.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y + 0.5f,transform.position.z);
-					 bullet2.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y - 0.5f,transform.position.z);
-					 break;
+						GameObject bullet1 = Instantiate(playerbulletPrefab) as GameObject;
+					 	GameObject bullet2 = Instantiate(playerbulletPrefab) as GameObject;
+					 	bullet1.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y + 0.5f,transform.position.z);
+					 	bullet2.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y - 0.5f,transform.position.z);
+					 	break;
 
-					default:
-					Debug.Log("kuso");
-					GameObject bullet = Instantiate(playerbulletPrefab) as GameObject;
-					bullet.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y,transform.position.z);
-					break;
+					case 2:
+						GameObject bullet3 = Instantiate(playerbulletPrefab) as GameObject;
+						GameObject bullet4 = Instantiate(playerbulletPrefab) as GameObject;
+						GameObject bullet5 = Instantiate(playerbulletPrefab) as GameObject;
+						bullet3.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y,transform.position.z);
+						bullet4.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y + 0.5f,transform.position.z);
+						bullet5.transform.position = new Vector3(transform.position.x + 1.0f,transform.position.y - 0.5f,transform.position.z);
+						break;
 				}
 
 			}
@@ -76,7 +84,9 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log(other.gameObject.tag + "に自機が重なりました");
 		if (other.gameObject.tag == "item"){
 			Destroy(other.gameObject);
-			this.bullet_type = 1;
+			if(this.bullet_type < 2){
+				this.bullet_type += 1;
+			}
 		}
 		if (other.gameObject.tag == "enemybullet" || other.gameObject.tag == "enemy" || other.gameObject.tag == "boss"){
 			Destroy(gameObject);
