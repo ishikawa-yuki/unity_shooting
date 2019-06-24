@@ -11,7 +11,7 @@ public class PlayerBulletController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(0,0.3f,0);
+		transform.Translate(0, 30.0f * Time.deltaTime, 0);
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

@@ -14,6 +14,7 @@ public class ClearDirector : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = 1;
 		this.clearText = GameObject.Find("clear");
 		this.stock = PlayerPrefs.GetInt("stockdata");
 		this.score = PlayerPrefs.GetInt("scoredata");

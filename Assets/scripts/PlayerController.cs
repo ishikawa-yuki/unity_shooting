@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(explodeControll){
+		if(explodeControll && (Time.timeScale == 1)){
 			if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)){
 				if(transform.position.y < 4.5f){
 					transform.Translate(-0.1f,0,0);

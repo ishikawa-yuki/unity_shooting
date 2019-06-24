@@ -22,7 +22,6 @@ public class GameDirector : MonoBehaviour {
 
 	public void player_kill (){
 		this.stock--;
-		PlayerPrefs.SetInt("scoredata", this.score);
 		PlayerPrefs.SetInt("stockdata", this.stock);
 		if (this.stock <= 0){
 			SceneManager.LoadScene("TitleScene");
@@ -59,6 +58,7 @@ public class GameDirector : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = 1;
 		this.scoreText = GameObject.Find("score");
 		this.stage = PlayerPrefs.GetInt("clearflag",1);
 		this.stockText = GameObject.Find("stock");
@@ -93,6 +93,14 @@ public class GameDirector : MonoBehaviour {
 		if(stage == 4){
 			PlayerPrefs.SetInt("scoredata", this.score);;
 			SceneManager.LoadScene("ClearScene");
+		}
+
+		if(Input.GetKeyDown(KeyCode.P)){
+			if(Time.timeScale == 1){
+				Time.timeScale = 0;
+			}else{
+				Time.timeScale = 1;
+			}
 		}
 
 	}

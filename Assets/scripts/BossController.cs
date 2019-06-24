@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour {
 
-	float move_speed = 0.03f;
+	float move_speed = 3.0f;
 	int movepara = 0;
 	float shotdelt = 0;
 	float span = 1.2f;
@@ -37,27 +37,27 @@ public class BossController : MonoBehaviour {
 
 			switch (this.movepara){
 				case 1:
-					transform.Translate(0,move_speed,0);
+					transform.Translate(0, move_speed * Time.deltaTime, 0);
 					if (transform.position.y > 3){
 						movepara = 0;
 					}
 					break;
 				case 2:
-					transform.Translate(0,-move_speed,0);
+					transform.Translate(0, -move_speed * Time.deltaTime, 0);
 					if (transform.position.y < -3){
 						movepara = 0;
 					}
 					break;
 
 				case 3:
-					transform.Translate(move_speed,0,0);
+					transform.Translate(move_speed * Time.deltaTime, 0, 0);
 					if (transform.position.x > 5.5){
 						movepara = 0;
 					}
 					break;
 				
 				case 4:
-					transform.Translate(-move_speed,0,0);
+					transform.Translate(-move_speed * Time.deltaTime, 0, 0);
 					if (transform.position.x < 0){
 						movepara = 0;
 					}
@@ -106,7 +106,7 @@ public class BossController : MonoBehaviour {
 				}
 			}
 		}else{
-			transform.Translate(-0.2f,0,0);
+			transform.Translate(-20.0f * Time.deltaTime,0,0);
 			if (transform.position.x <= 0){
 				this.admission = true;	
 			}
