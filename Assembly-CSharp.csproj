@@ -62,6 +62,7 @@
      <Compile Include="Assets\ObstacleController.cs" />
      <Compile Include="Assets\ObstacleGenerator.cs" />
      <Compile Include="Assets\scripts\BackgroundController.cs" />
+     <Compile Include="Assets\scripts\BarrierController.cs" />
      <Compile Include="Assets\scripts\BombController.cs" />
      <Compile Include="Assets\scripts\BossController.cs" />
      <Compile Include="Assets\scripts\BossGeneratot.cs" />
