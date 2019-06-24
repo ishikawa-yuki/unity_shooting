@@ -5,7 +5,7 @@ using UnityEngine;
 public class NormalEnemyController : MonoBehaviour {
 
 	public GameObject EnemyBulletPrefab;
-	public GameObject exprosionPrefab;
+	public GameObject explosionPrefab;
 	GameObject director;
 	//スコア加算用メソッド呼び出しのためにオブジェクトを定義・取得予定
 
@@ -30,7 +30,7 @@ public class NormalEnemyController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 
 		if(other.gameObject.tag == "playerbullet"){
-			GameObject effect = Instantiate(exprosionPrefab, transform.position, Quaternion.identity) as GameObject;
+			GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
 			this.director.GetComponent<GameDirector>().nomalenemy_kill();
 			Destroy(gameObject);
 			//ToDo スコア加算用メソッド呼び出し追記予定

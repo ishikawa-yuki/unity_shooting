@@ -9,7 +9,7 @@ public class BossController : MonoBehaviour {
 	float shotdelt = 0;
 	float span = 1.2f;
 	public GameObject enemybulletPrefab;
-	public GameObject exprosionPrefab;
+	public GameObject explosionPrefab;
 
 	GameObject gamedirector;
 	public int hp = 200;
@@ -117,7 +117,7 @@ public class BossController : MonoBehaviour {
 			this.hp--;
 			if (this.hp <= 0){
 				this.gamedirector.GetComponent<GameDirector>().sine();
-				GameObject effect = Instantiate(exprosionPrefab, transform.position, Quaternion.identity) as GameObject;
+				GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
 				Invoke("DieEffect", 1);
 			}	
 		}
