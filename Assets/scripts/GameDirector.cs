@@ -86,6 +86,7 @@ public class GameDirector : MonoBehaviour {
 			this.stage++;
 			PlayerPrefs.SetInt("clearflag", this.stage);
 			PlayerPrefs.SetInt("bullet_mode", this.player.GetComponent<PlayerController>().bullet_type);
+			PlayerPrefs.SetInt("barrier_mode", (this.player.GetComponent<PlayerController>().barrier_flag) ? 1 : 0 );
 			SceneManager.LoadScene("GameScene");
 		}
 
