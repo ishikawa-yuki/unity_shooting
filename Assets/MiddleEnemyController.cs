@@ -19,7 +19,7 @@ public class MiddleEnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(-0.01f, 0, 0);
+		transform.Translate(-1.0f * Time.deltaTime, 0, 0);
 		shootDelta += Time.deltaTime;
 		if(shootSpan < shootDelta){
 			shootDelta = 0;
