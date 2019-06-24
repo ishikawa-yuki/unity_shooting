@@ -1138,6 +1138,7 @@ MonoBehaviour:
   bombPrefab: {fileID: 1307482614497888, guid: 38b237f65fc2449c5be1dc05ef584ac6, type: 2}
   barrierPrefab: {fileID: 1666200506358818, guid: ed530a50321544f2d978faf5a8545964,
     type: 2}
+  explosionPrefab: {fileID: 100000, guid: 4c5a17ca1f9fec84e941441ebb8be079, type: 2}
   deltime: 0
   bullet_type: 0
   barrier_flag: 0
