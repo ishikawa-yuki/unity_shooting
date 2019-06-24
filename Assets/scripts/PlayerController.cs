@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour {
 	public float deltime = 0;
 	float span = 0.2f;
 	public int bullet_type = 0;
-	bool barrier_flag = false;
+
 	bool explodeControll;
+	public bool barrier_flag = false;
 
 
 	// Use this for initialization
@@ -21,6 +22,11 @@ public class PlayerController : MonoBehaviour {
 		this.gamedirector = GameObject.Find("GameDirector");
 		this.bullet_type = PlayerPrefs.GetInt("bullet_mode",0);
 		this.explodeControll = true;
+		this.barrier_flag = PlayerPrefs.GetInt("barrier_mode") == 1 ? true : false ;
+		if (this.barrier_flag){
+			GameObject barrier = Instantiate(barrierPrefab) as GameObject;
+			barrier.transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+		}
 	}
 	
 	// Update is called once per frame

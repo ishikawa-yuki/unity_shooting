@@ -330,6 +330,7 @@ MonoBehaviour:
   delt: 0
   clear_flag: 0
   boss_sine: 0
+  emergenceStopSpan: 20
 --- !u!4 &325481874
 Transform:
   m_ObjectHideFlags: 0
@@ -803,7 +804,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4655774901206700, guid: cf72fd029df2344d2afc2b08877bad79, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.227
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4655774901206700, guid: cf72fd029df2344d2afc2b08877bad79, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1139,6 +1140,7 @@ MonoBehaviour:
     type: 2}
   deltime: 0
   bullet_type: 0
+  barrier_flag: 0
 --- !u!1 &1668409063
 GameObject:
   m_ObjectHideFlags: 0
