@@ -9,12 +9,12 @@ public class ItemController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rigid2d = GetComponent<Rigidbody2D>();
-		this.rigid2d.AddForce(transform.right * -2.0f , ForceMode2D.Impulse);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		// transform.Translate(-1.0f,0,0);
+		transform.Translate(-0.03f,0,0,Space.World);
 		transform.Rotate(0,0,15.0f,Space.Self);
 	}
 
