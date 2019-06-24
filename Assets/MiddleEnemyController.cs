@@ -5,7 +5,7 @@ using UnityEngine;
 public class MiddleEnemyController : MonoBehaviour {
 
 	public GameObject EnemyBulletPrefab;
-	public GameObject exprosionPrefab;
+	public GameObject explosionPrefab;
 	GameObject director;
 	//スコア加算用メソッド呼び出しのためにオブジェクトを定義・取得予定
 	int life = 7;
@@ -32,7 +32,7 @@ public class MiddleEnemyController : MonoBehaviour {
 		if(other.gameObject.tag == "playerbullet"){
 			this.life -= 1;
 			if(this.life <= 0){
-				GameObject effect = Instantiate(exprosionPrefab, transform.position, Quaternion.identity) as GameObject;
+				GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
 				Destroy(gameObject);
 				this.director.GetComponent<GameDirector>().middleenemy_kill();
 				//ToDo スコア加算用メソッド呼び出し追記予定
