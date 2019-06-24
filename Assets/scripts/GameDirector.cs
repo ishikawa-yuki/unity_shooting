@@ -58,6 +58,7 @@ public class GameDirector : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = 1;
 		this.scoreText = GameObject.Find("score");
 		this.stage = PlayerPrefs.GetInt("clearflag",1);
 		this.stockText = GameObject.Find("stock");
