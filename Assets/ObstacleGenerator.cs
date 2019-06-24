@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class ObstacleGenerator : MonoBehaviour {
 
+	GameObject director;
+	GameDirector script;
 	float delta = 0;
 	float stopDelta = 0;
-	float span = 9.0f;
-	float stopSpan = 20.0f;
+	float span = 12.0f;
+	float stopSpan;
 	float ObstaclePosy = 3.5f;
 	public GameObject ObstaclePrefab;
 	// Use this for initialization
 	void Start () {
-		
+		this.director = GameObject.Find("GameDirector");
+		this.script = this.director.GetComponent<GameDirector>();
+		int stageNum = this.script.stage;
+		this.stopSpan = this.script.emergenceStopSpan;
+		switch (stageNum) {
+			case 1:
+				this.span = 12.0f;
+				break;
+			case 2:
+				this.span = 13.5f;
+				break;
+			case 3:
+				this.span = 14.0f;
+				break;
+			default:
+				break;
+		}
 	}
 	
 	// Update is called once per frame

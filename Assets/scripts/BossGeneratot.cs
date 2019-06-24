@@ -5,18 +5,23 @@ using UnityEngine;
 public class BossGeneratot : MonoBehaviour {
 
 	public GameObject bossPrefab;
-	float span = 30.0f;
+	GameObject director;
+	GameDirector script;
+	float span;
 	float delta = 0;
 	int onlyBoss;
 	// Use this for initialization
 	void Start () {
 		onlyBoss = 0;
+		this.director = GameObject.Find("GameDirector");
+		this.script = this.director.GetComponent<GameDirector>();
+		this.span = this.script.emergenceStopSpan + 10.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log(delta);
 		this.delta += Time.deltaTime;
-		Debug.Log(this.delta);
 		if( this.onlyBoss == 0){
 			if(this.delta >= this.span){
 				GameObject bossgen = Instantiate(bossPrefab) as GameObject;
