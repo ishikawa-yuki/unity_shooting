@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundController : MonoBehaviour {
+public class TitleBackgroundController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
