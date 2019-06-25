@@ -44,7 +44,6 @@ public class MiddleEnemyController : MonoBehaviour {
 				Destroy(gameObject);
 				this.director.GetComponent<GameDirector>().middleenemy_kill();
 				//ToDo スコア加算用メソッド呼び出し追記予定
-			}
 		}
 
 		if(other.gameObject.tag == "bar"){
