@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour {
 
-	float move_speed = 3.0f;
+	float move_speed = 2.0f;
 	int movepara = 0;
 	float shotdelt = 0;
 	float span = 1.2f;
@@ -106,7 +106,7 @@ public class BossController : MonoBehaviour {
 				}
 			}
 		}else{
-			transform.Translate(-20.0f * Time.deltaTime,0,0);
+			transform.Translate(-7.0f * Time.deltaTime,0,0);
 			if (transform.position.x <= 0){
 				this.admission = true;	
 			}
