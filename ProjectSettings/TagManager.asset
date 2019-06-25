@@ -13,6 +13,7 @@ TagManager:
   - boss
   - barrieritem
   - barrier
+  - bomb
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class BossGeneratot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(delta);
+		//Debug.Log(delta);
 		this.delta += Time.deltaTime;
 		if( this.onlyBoss == 0){
 			if(this.delta >= this.span){

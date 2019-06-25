@@ -36,9 +36,10 @@ public class ObstacleGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		this.stopDelta += Time.deltaTime;
-		if(stopDelta < stopSpan){
+		if(this.stopDelta < this.stopSpan){
+
 			this.delta += Time.deltaTime;
-			if(this.span < this.delta){
+			if(this.delta >= this.span){
 				this.delta = 0;
 				GameObject ObstacleGen = Instantiate(ObstaclePrefab) as GameObject;
 				ObstacleGen.transform.position = new Vector3(8, ObstaclePosy, 0);
