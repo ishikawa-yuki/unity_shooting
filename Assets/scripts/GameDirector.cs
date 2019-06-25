@@ -18,6 +18,7 @@ public class GameDirector : MonoBehaviour {
 	float stage_put = 3.0f;
 	public bool clear_flag = false;
 	public bool boss_sine = false;
+	bool stage_put_flag = false;
 	public float emergenceStopSpan = 20.0f;
 
 	public void player_kill (){
@@ -74,7 +75,8 @@ public class GameDirector : MonoBehaviour {
 		if (this.delt <= this.stage_put){
 			this.delt += Time.deltaTime;
 			this.stageText.GetComponent<Text>().text = "STAGE" + this.stage;
-		}else{
+		}else if(!(stage_put_flag)){
+			stage_put_flag = true;
 			this.stageText.GetComponent<Text>().text = "";
 		}
 		this.scoreText.GetComponent<Text>().text = "score : " + this.score;
@@ -98,8 +100,10 @@ public class GameDirector : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.P)){
 			if(Time.timeScale == 1){
 				Time.timeScale = 0;
+				this.stageText.GetComponent<Text>().text = "PASUE";
 			}else{
 				Time.timeScale = 1;
+				this.stageText.GetComponent<Text>().text = "";
 			}
 		}
 

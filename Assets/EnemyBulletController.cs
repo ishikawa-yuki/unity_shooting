@@ -13,7 +13,7 @@ public class EnemyBulletController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(-10.0f * Time.deltaTime, 0, 0);
+		transform.Translate(-5.0f * Time.deltaTime, 0, 0);
 		if(this.director.GetComponent<GameDirector>().boss_sine){
 			Destroy(gameObject);
 		}
