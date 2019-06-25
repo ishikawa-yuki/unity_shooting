@@ -10,6 +10,8 @@ public class ClearDirector : MonoBehaviour {
 
 	int stock = 0;
 
+	int score_mag = 10;
+
 	GameObject clearText;
 
 	// Use this for initialization
@@ -22,7 +24,7 @@ public class ClearDirector : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.clearText.GetComponent<Text>().text = this.score + "X" + this.stock + "\nSCORE : " + this.score*this.stock + "\nEnterキーでタイトルへ";
+		this.clearText.GetComponent<Text>().text = this.score + " X " + this.score_mag + " X " + this.stock + "\nSCORE : " + this.score*(this.stock*this.score_mag) + "\nEnterキーでタイトルへ";
 		if (Input.GetKeyDown(KeyCode.Return)){
 			SceneManager.LoadScene("TitleScene");
 		}
