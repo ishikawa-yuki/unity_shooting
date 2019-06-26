@@ -288,7 +288,7 @@ MonoBehaviour:
   delt: 0
   clear_flag: 0
   boss_sine: 0
-  emergenceStopSpan: 20
+  emergenceStopSpan: 0
 --- !u!4 &325481874
 Transform:
   m_ObjectHideFlags: 0

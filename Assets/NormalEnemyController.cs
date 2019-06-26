@@ -29,7 +29,7 @@ public class NormalEnemyController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 
-		if(other.gameObject.tag == "playerbullet"){
+		if(other.gameObject.tag == "playerbullet" || other.gameObject.tag == "bomb"){
 			GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
 			this.director.GetComponent<GameDirector>().nomalenemy_kill();
 			Destroy(gameObject);

@@ -39,6 +39,13 @@ public class MiddleEnemyController : MonoBehaviour {
 			}
 		}
 
+		if(other.gameObject.tag == "bomb"){
+				GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
+				Destroy(gameObject);
+				this.director.GetComponent<GameDirector>().middleenemy_kill();
+				//ToDo スコア加算用メソッド呼び出し追記予定
+		}
+
 		if(other.gameObject.tag == "bar"){
 			Destroy(gameObject);
 		}
