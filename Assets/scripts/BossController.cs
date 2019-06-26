@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class BossController : MonoBehaviour {
 	public GameObject explosionPrefab;
 
 	GameObject gamedirector;
+	GameObject stageClear;
 	public int hp = 200;
 	public int steage = 0;
 	float beam_time = 1.0f;
@@ -24,7 +26,7 @@ public class BossController : MonoBehaviour {
 	void Start () {
 		this.gamedirector = GameObject.Find("GameDirector");
 		this.steage = this.gamedirector.GetComponent<GameDirector>().stage;
-		
+		this.stageClear = GameObject.Find("StageClear");
 	}
 	
 	// Update is called once per frame
@@ -112,13 +114,18 @@ public class BossController : MonoBehaviour {
 			}
 		}
 	}
+
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "playerbullet"){
 			this.hp--;
 			if (this.hp <= 0){
-				this.gamedirector.GetComponent<GameDirector>().sine();
 				GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
-				Invoke("DieEffect", 1);
+				this.gamedirector.GetComponent<GameDirector>().sine();
+				this.GetComponent<BoxCollider2D>().enabled = false;
+				this.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0);
+				
+				this.stageClear.GetComponent<Text>().text = "STAGE CLEAR";
+				Invoke("DieEffect", 5);
 			}	
 		}
 	}
