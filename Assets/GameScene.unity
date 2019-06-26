@@ -282,13 +282,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9a531ac0c8d84969b3e05e50ab3f832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombstock: 9000
+  bombstock: 1
   stock: 3
-  stage: 2
+  stage: 0
   delt: 0
   clear_flag: 0
   boss_sine: 0
-  emergenceStopSpan: 20
+  emergenceStopSpan: 0
 --- !u!4 &325481874
 Transform:
   m_ObjectHideFlags: 0

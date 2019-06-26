@@ -22,13 +22,13 @@ public class MiddleEnemyGenerator : MonoBehaviour {
 		this.stopSpan = this.script.emergenceStopSpan;
 		switch (stageNum) {
 			case 1:
-				this.span = 15.0f;
+				this.span = this.stopSpan / 30.0f;
 				break;
 			case 2:
-				this.span = 12.0f;
+				this.span = this.stopSpan / 40.0f;
 				break;
 			case 3:
-				this.span = 10.0f;
+				this.span = this.stopSpan / 50.0f;
 				break;
 			default:
 				break;

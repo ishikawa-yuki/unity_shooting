@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class ObstacleGenerator : MonoBehaviour {
 
+	public GameObject ObstaclePrefab;
 	GameObject director;
 	GameDirector script;
 	float delta = 0;
 	float stopDelta = 0;
-	float span = 12.0f;
+	float span = 0;
 	float stopSpan;
 	float ObstaclePosy = 3.5f;
-	public GameObject ObstaclePrefab;
+	int stageNum = 0;
 	// Use this for initialization
 	void Start () {
 		this.director = GameObject.Find("GameDirector");
 		this.script = this.director.GetComponent<GameDirector>();
-		int stageNum = this.script.stage;
+		this.stageNum = this.script.stage;
 		this.stopSpan = this.script.emergenceStopSpan;
 		switch (stageNum) {
 			case 1:
@@ -36,9 +37,11 @@ public class ObstacleGenerator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		this.stopDelta += Time.deltaTime;
-		if(stopDelta < stopSpan){
+		if(this.stopDelta < this.stopSpan){
 			this.delta += Time.deltaTime;
-			if(this.span < this.delta){
+			if(this.delta >= this.span){
+				Debug.Log("stopspan : " + this.stopSpan);
+				Debug.Log("stage : " + this.stageNum);
 				this.delta = 0;
 				GameObject ObstacleGen = Instantiate(ObstaclePrefab) as GameObject;
 				ObstacleGen.transform.position = new Vector3(8, ObstaclePosy, 0);
