@@ -9,6 +9,10 @@ public class EnemyBulletController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.director = GameObject.Find("GameDirector");
+		if(this.director.GetComponent<GameDirector>().boss_sine){
+			this.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0);
+			Destroy(gameObject);
+		}
 	}
 	
 	// Update is called once per frame
