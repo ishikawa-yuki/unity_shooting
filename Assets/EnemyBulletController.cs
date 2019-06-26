@@ -12,6 +12,7 @@ public class EnemyBulletController : MonoBehaviour {
 		if(this.director.GetComponent<GameDirector>().boss_sine){
 			this.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0);
 			Destroy(gameObject);
+			
 		}
 	}
 	

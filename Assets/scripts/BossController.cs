@@ -123,6 +123,7 @@ public class BossController : MonoBehaviour {
 				this.gamedirector.GetComponent<GameDirector>().sine();
 				this.GetComponent<BoxCollider2D>().enabled = false;
 				this.GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 0);
+				
 				this.stageClear.GetComponent<Text>().text = "STAGE CLEAR";
 				Invoke("DieEffect", 5);
 			}	
