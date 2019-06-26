@@ -13,7 +13,7 @@ public class GameDirector : MonoBehaviour {
 	public int bombstock = 1;
 	public int stock = 3;
 	int score = 0;
-	public int stage = 1;
+	public int stage = 0;
 	public float delt = 0;
 	float stage_put = 3.0f;
 	public bool clear_flag = false;
@@ -49,9 +49,9 @@ public class GameDirector : MonoBehaviour {
 		this.clear_flag = true;
 	}
 
-	public void stageclear(){
-		this.stage += 1;
-	}
+	// public void stageclear(){
+	// 	this.stage += 1;
+	// }
 
 	public void bomb(){
 		this.bombstock--;
@@ -68,15 +68,16 @@ public class GameDirector : MonoBehaviour {
 		this.player = GameObject.Find("player");
 		this.score = PlayerPrefs.GetInt("scoredata",0);
 		this.stock = PlayerPrefs.GetInt("stockdata",3);
+		Debug.Log(this.stage);
 		switch (this.stage){
 			case 1:
-				this.emergenceStopSpan = 60;
+				this.emergenceStopSpan = 60.0f;
 				break;
 			case 2:
-				this.emergenceStopSpan = 40;
+				this.emergenceStopSpan = 40.0f;
 				break;
 			case 3:
-				this.emergenceStopSpan = 20;
+				this.emergenceStopSpan = 20.0f;
 				break;
 			default:
 			break;
